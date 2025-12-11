@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Travel Checklist — Checklist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/checklistViaje.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <img src="img/checklist.png" alt="logo" class="logo">
+        <span class="brand">Travel CheckList</span>
+      </div>
+      <div class="header-actions">
+        <button id="volverBtn" class="btn-ghost">VOLVER</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="container">
+      <div class="top-row">
+        <h3 class="section-title">Checklist:</h3>
+
+        <div class="top-buttons">
+          <button id="reminderBtn" class="btn-ghost small">Recordatorio</button>
+          <button id="shareBtn" class="btn-ghost small">Compartir</button>
+        </div>
+      </div>
+
+      <div class="checklist-box" id="checklistBox">
+        <div class="columns">
+          <div class="col" id="colLeft"></div>
+          <div class="col" id="colRight"></div>
+        </div>
+
+        <div class="center-add">
+            <div class="tarea-nueva">
+                <input id="newItemInput" placeholder="Nueva tarea..." />
+                <button id="addBtn" class="btn-ghost small" aria-label="Agregar">+ Agregar</button>
+            </div>
+        </div>
+      </div>
+
+      <h3 class="section-title">Progreso:</h3>
+
+      <div class="progress-wrap">
+        <div class="progress-bg">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <div class="progress-percent" id="progressPercent">0%</div>
+      </div>
+
+      <div class="nav-buttons">
+        <button id="prevBtn" class="btn-ghost">‹ Atrás</button>
+        <button id="nextBtn" class="btn-ghost">Siguiente ›</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">© 2025 TravelChecklist. Todos los derechos reservados.</footer>
+
+<script>
+const initialLeft = [
+  "Cedula",
+  "Ropa dia 1"
+];
+
+const initialRight = [
+  "Aseo"
+];
+
+const colLeft = document.getElementById('colLeft');
+const colRight = document.getElementById('colRight');
+const addBtn = document.getElementById('addBtn');
+const newItemInput = document.getElementById('newItemInput');
+const progressBar = document.getElementById('progressBar');
+const progressPercent = document.getElementById('progressPercent');
+const reminderBtn = document.getElementById('reminderBtn');
+const shareBtn = document.getElementById('shareBtn');
+const volverBtn = document.getElementById('volverBtn');
+
+let items = [];
+
+function uid() { return 'id_' + Math.random().toString(36).slice(2,9); }
+
+function createItemElement(item) {
+  const wrapper = document.createElement('div');
+  wrapper.className = 'item';
+
+  const chk = document.createElement('button');
+  chk.className = item.checked ? 'toggle checked' : 'toggle';
+  chk.setAttribute('aria-pressed', item.checked);
+  chk.addEventListener('click', () => {
+    item.checked = !item.checked;
+    chk.classList.toggle('checked', item.checked);
+    chk.setAttribute('aria-pressed', item.checked);
+    updateProgress();
+  });
+
+  const text = document.createElement('div');
+  text.className = 'item-text';
+  text.textContent = item.text;
+
+  wrapper.appendChild(chk);
+  wrapper.appendChild(text);
+
+  return wrapper;
+}
+
+function renderAll() {
+  colLeft.innerHTML = '';
+  colRight.innerHTML = '';
+
+  const leftItems = items.filter((_, i) => i % 2 === 0);
+  const rightItems = items.filter((_, i) => i % 2 === 1);
+
+  leftItems.forEach(it => colLeft.appendChild(createItemElement(it)));
+  rightItems.forEach(it => colRight.appendChild(createItemElement(it)));
+
+  updateProgress();
+}
+
+function updateProgress() {
+  const total = items.length || 0;
+  const checked = items.filter(i => i.checked).length;
+  const pct = total === 0 ? 0 : Math.round((checked / total) * 100);
+  progressBar.style.width = pct + '%';
+  progressPercent.textContent = pct + '%';
+}
+
+function init() {
+  items = [];
+
+  initialLeft.forEach(text => items.push({ id: uid(), text, checked: false }));
+  initialRight.forEach(text => items.push({ id: uid(), text, checked: false }));
+
+  renderAll();
+}
+
+addBtn.addEventListener('click', () => {
+  const val = newItemInput.value.trim();
+  if (!val) {
+    newItemInput.focus();
+    return;
+  }
+  items.push({ id: uid(), text: val, checked: false });
+  newItemInput.value = '';
+  renderAll();
+
+  const box = document.getElementById('checklistBox');
+  box.scrollTop = box.scrollHeight;
+});
+
+newItemInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') addBtn.click();
+});
+
+reminderBtn.addEventListener('click', () => {
+  alert('Función de recordatorio (placeholder). Aquí puedes abrir modal o programar un recordatorio.');
+});
+
+shareBtn.addEventListener('click', () => {
+  const text = items.map(i => (i.checked ? '☑ ' : '☐ ') + i.text).join('\\n');
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(() => {
+      alert('Checklist copiado al portapapeles.');
+    }).catch(() => {
+      alert('No se pudo copiar automáticamente. Selecciona y copia manualmente.');
+    });
+  } else {
+    alert('Compartir: ' + text);
+  }
+});
+
+volverBtn.addEventListener('click', () => {
+  if (confirm('¿Deseas volver a la pantalla anterior?')) history.back();
+});
+
+document.getElementById('prevBtn').addEventListener('click', () => {
+  alert('Ir a pantalla anterior (placeholder).');
+});
+document.getElementById('nextBtn').addEventListener('click', () => {
+  alert('Ir a siguiente pantalla (placeholder).');
+});
+
+init();
+</script>
+
+</body>
+</html>

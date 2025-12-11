@@ -1,0 +1,201 @@
+:root{
+  --amarillo: #e8c675;
+  --fondo-box: #e9c985;
+  --fondo-item: #dbdbdb;
+  --gris-boton: #707070;
+  --texto: #111;
+  --verde: #28a92b;
+  --font-main: "Irish Grover", cursive;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Reset */
+*{box-sizing:border-box}
+
+body {
+    margin: 0;
+    font-family: var(--font-main);
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.header{background:var(--amarillo); border-bottom:3px solid rgba(0,0,0,0.06)}
+.header-inner{max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:12px 20px}
+.brand-area{display:flex; align-items:center; gap:10px}
+.logo{width:34px; height:34px; object-fit:contain}
+.brand{font-size:25px}
+
+/* Buttons */
+.btn-ghost{
+  background:#6f6f6f; color:#fff; border:none; padding:8px 14px; border-radius:12px; cursor:pointer; font-size:14px; font-family: var(--font-main); font-size: 18px;
+}
+.btn-ghost.small{padding:6px 10px; font-size:13px; font-size: 18px;} 
+.btn-dark{
+  background:#6f6f6f; color:#fff; border:none; padding:8px 12px; border-radius:10px; cursor:pointer; font-family: var(--font-main); font-size: 18px;
+}
+
+/* Main container */
+.main{padding:18px 12px}
+.container{max-width:1100px; margin:0 auto}
+
+/* Top row: title + buttons */
+.top-row{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px}
+.section-title{font-size:20px; margin:0;}
+
+/* Checklist box */
+.checklist-box{
+  background:var(--fondo-box);
+  border-radius:8px;
+  padding:18px;
+  min-height:220px;
+  max-height:260px;
+  overflow:auto;         /* scroll vertical */
+  position:relative;
+  margin-bottom:18px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.04);
+}
+
+/* Two columns layout inside checklist box */
+.columns{display:flex; gap:20px}
+.col{flex:1; display:flex; flex-direction:column; gap:12px; min-width:150px}
+
+/* Item style */
+.item{
+  background:var(--fondo-item);
+  padding:8px 10px;
+  border-radius:8px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  box-shadow: inset 0 -2px 0 rgba(0,0,0,0.03);
+}
+
+/* Toggle circle */
+.toggle{
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  background:#fff;
+  border:2px solid rgba(0,0,0,0.08);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  flex-shrink:0;
+  transition: all .15s ease;
+}
+.toggle.checked{
+  background:linear-gradient(180deg, #dfffe0, #b7f3b0);
+  border-color: rgba(40,169,43,0.9);
+  box-shadow: 0 0 0 3px rgba(40,169,43,0.12) inset;
+}
+.item-text{font-size:15px; color:var(--texto)}
+
+/* Center add area (below columns but inside box) */
+.center-add{
+  position: absolute;
+  right: 20px;
+  bottom: 12px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.center-add input{
+  padding:8px 10px;
+  border-radius:8px;
+  border:1px solid rgba(0,0,0,0.08);
+  font-size:14px;
+  width:180px;
+}
+
+/* Input con el mismo estilo de los ítems */
+
+
+#newItemInput {
+    background: #d9d9d9;           /* mismo color del item */
+    border: none;
+    outline: none;
+    padding: 8px 12px;
+    border-radius: 8px;            /* igual al item */
+    font-size: 16px;
+    font-family: 'Irish Grover', cursive;
+    height: 36px;                  /* misma altura */
+    box-shadow: inset 0 -3px 0 rgba(0,0,0,0.12);  /* igual a los items */
+    width: 220px;                  /* puedes ajustar */
+}
+
+/* Hover suave igual */
+#newItemInput:hover {
+    background: #cfcfcf;
+}
+
+/* En móviles */
+@media (max-width: 800px) {
+    #newItemInput {
+        width: 150px;
+    }
+}
+
+
+/* Progress area */
+.progress-wrap{display:flex; align-items:center; gap:12px; margin: 10px 0 20px 0; max-width:1100px}
+.progress-bg{
+  background: #ffffff;
+  border-radius: 12px;
+  width:100%;
+  height:26px;
+  padding:4px;
+  box-shadow: inset 0 2px 0 rgba(0,0,0,0.03);
+}
+.progress-bar{
+  height:100%;
+  width:0%;
+  background: linear-gradient(90deg, var(--verde), #0a7f21);
+  border-radius:10px;
+  transition: width .25s ease;
+}
+.progress-percent{min-width:46px; text-align:right; font-weight:700}
+
+/* Nav buttons */
+.nav-buttons{display:flex; justify-content:center; gap:40px; margin-top:10px}
+.nav-buttons .btn-ghost{min-width:120px}
+
+/* Footer */
+.footer {
+    background-color: var(--amarillo);
+    text-align: center;
+    padding: 12px;
+    
+    margin-top: auto;
+    font-size: 16px;
+}
+
+/* Custom scrollbar (webkit) */
+.checklist-box::-webkit-scrollbar{width:12px}
+.checklist-box::-webkit-scrollbar-track{background:transparent}
+.checklist-box::-webkit-scrollbar-thumb{background:#c1b59a; border-radius:8px; border:3px solid transparent; background-clip: padding-box}
+
+/* Responsive */
+@media (max-width: 800px){
+  .columns{flex-direction:column}
+  .center-add{position:static; margin-top:12px; justify-content:flex-start}
+  .center-add input{width:60%}
+  .progress-wrap{flex-direction:column; align-items:stretch}
+  .progress-percent{text-align:left}
+  .nav-buttons{gap:20px}
+  .nav-buttons .btn-ghost{min-width:90px}
+}
+
+@media (max-width:420px){
+  .brand{font-size:18px}
+  .logo{width:28px}
+  .checklist-box{padding:12px}
+  .center-add input{width:100%}
+}

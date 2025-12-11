@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crear Cuenta</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: url('https://i.imgur.com/8l7xYcO.jpeg') no-repeat center/cover;
+    }
+
+    .contenedor {
+        width: 100%;
+        height: 100vh;
+        background: rgba(255, 205, 129, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .formulario {
+        width: 380px;
+        background: rgba(255, 205, 129, 0);
+        padding: 20px;
+        text-align: center;
+    }
+
+    .icono {
+        width: 80px;
+        height: 80px;
+        background: #555;
+        color: white;
+        font-size: 40px;
+        border-radius: 50%;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    h2 {
+        margin-top: 15px;
+        font-family: "Comic Sans MS";
+        letter-spacing: 2px;
+    }
+
+    label {
+        display: block;
+        text-align: left;
+        font-weight: bold;
+        margin-top: 10px;
+        margin-bottom: 5px;
+        font-family: "Comic Sans MS";
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        border-radius: 6px;
+        border: none;
+        background: #d9d9d9;
+    }
+
+    .checkbox {
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-family: "Comic Sans MS";
+    }
+
+    .boton {
+        width: 100%;
+        padding: 12px;
+        margin-top: 15px;
+        border: none;
+        border-radius: 10px;
+        background: #505050;
+        color: white;
+        font-size: 18px;
+        font-family: "Comic Sans MS";
+        cursor: pointer;
+    }
+
+    .boton:hover {
+        background: #303030;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="contenedor">
+    <div class="formulario">
+
+        <div class="icono">👤</div>
+
+        <h2>CREAR NUEVA CUENTA</h2>
+
+        <label>Correo:</label>
+        <input type="email" placeholder="Ingrese su correo">
+
+        <label>Nombres:</label>
+        <input type="text" placeholder="Ingrese sus nombres">
+
+        <label>Apellidos:</label>
+        <input type="text" placeholder="Ingrese sus apellidos">
+
+        <label>Contraseña:</label>
+        <input type="password" placeholder="Ingrese su contraseña">
+
+        <label>Repetir Contraseña:</label>
+        <input type="password" placeholder="Repita su contraseña">
+
+        <div class="checkbox">
+            <input type="checkbox">
+            <span>Aceptar términos y condiciones</span>
+        </div>
+
+        <button class="boton">CREAR CUENTA</button>
+        <button class="boton">CANCELAR</button>
+
+    </div>
+</div>
+
+</body>
+</html>

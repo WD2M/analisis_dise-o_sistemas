@@ -1,4 +1,4 @@
-/* ===== VARIABLES ===== */
+/*VARIABLES */
 :root {
     --amarillo: #e8c675;
     --gris-boton: #707070;
@@ -9,7 +9,7 @@
     --font-main: "Irish Grover", cursive;
 }
 
-/* ===== ESTILOS GENERALES ===== */
+/*  ESTILOS GENERALES  */
 html, body {
     height: 100%;
     margin: 0;
@@ -29,7 +29,7 @@ p, h1, h2, h3, h4 {
     line-height: 1.3em;
 }
 
-/* ===== HEADER ===== */
+/*  HEADER  */
 .header {
     background-color: var(--amarillo);
     padding: 15px 30px;
@@ -74,7 +74,7 @@ p, h1, h2, h3, h4 {
 }
 
 
-/* ===== CONTENIDO PRINCIPAL ===== */
+/* CONTENIDO PRINCIPAL  */
 
 .main {
     padding: 30px;
@@ -97,7 +97,7 @@ p, h1, h2, h3, h4 {
 }
 
 
-/* ===== CARACTERÍSTICAS ===== */
+/* CARACTERÍSTICAS  */
 
 .titulo-caracteristicas {
     font-size: 24px;
@@ -135,7 +135,7 @@ p, h1, h2, h3, h4 {
     width: 32px;
 }
 
-/* ===== FOOTER ===== */
+/*  FOOTER  */
 
 .footer {
     background-color: var(--amarillo);
@@ -144,4 +144,5 @@ p, h1, h2, h3, h4 {
     
     margin-top: auto;
     font-size: 16px;
+
 }

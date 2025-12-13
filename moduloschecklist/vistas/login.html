@@ -1,0 +1,44 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Travel CheckList</title>
+    <link rel="stylesheet" href="../styles/login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-page">
+            <div class="map-decoration map-left"></div>
+            <div class="map-decoration map-right"></div>
+            <div class="pin-decoration pin-left"></div>
+            <div class="pin-decoration pin-right"></div>
+            
+            <div class="user-icon"></div>
+            <h1>INICIAR SESIÓN</h1>
+            
+            <form id="loginForm" action="checklist.html" method="get">
+                <div class="form-group">
+                    <label for="email">CORREO:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">CONTRASEÑA:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                
+                <div class="forgot-password">
+                    ¿Olvidaste tu contraseña? <a href="#">Restablécela</a>
+                </div>
+                
+                <div class="button-group">
+                    <button type="submit" class="btn-primary">INICIAR</button>
+                    <button type="button" class="btn-secondary">CANCELAR</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

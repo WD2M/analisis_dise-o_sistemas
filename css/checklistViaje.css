@@ -199,29 +199,3 @@ body {
   .checklist-box{padding:12px}
   .center-add input{width:100%}
 }
-
-.recordatorios-box,
-.acciones-box {
-  background: var(--fondo-box);
-  padding: 15px;
-  border-radius: 10px;
-  margin-bottom: 25px;
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.recordatorio-item {
-  background: var(--fondo-item);
-  padding: 8px 12px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.danger {
-  background-color: #5a5a5a;
-}
-
-

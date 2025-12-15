@@ -1,0 +1,137 @@
+:root {
+  --amarillo: #e8c675;
+  --gris: #707070;
+  --gris-claro: #d9d9d9;
+  --verde: #1fa32b;
+  --blanco: #ffffff;
+  --font: "Irish Grover", cursive;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: var(--font);
+}
+
+body {
+  margin: 0;
+  background: #fff;
+}
+
+/* HEADER */
+.header {
+  background: var(--amarillo);
+  padding: 14px 24px;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+}
+
+.brand img {
+  width: 34px;
+}
+
+.btn-header {
+  background: var(--gris);
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+/* CONTENEDOR */
+.container {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+/* TITULOS */
+.section-title {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+/* BOTON NUEVO VIAJE */
+.new-trip {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.btn-new {
+  background: var(--gris);
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+/* GRID DE VIAJES */
+.trips {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+/* CARD VIAJE */
+.trip-card {
+  background: var(--gris-claro);
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+}
+
+.trip-card h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.trip-card p {
+  margin: 6px 0;
+  font-size: 14px;
+}
+
+/* PROGRESO */
+.progress {
+  background: white;
+  border-radius: 12px;
+  height: 18px;
+  margin: 12px 0;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 40%; /* ajustable */
+  background: var(--verde);
+}
+
+/* BOTON VER */
+.btn-ver {
+  background: var(--gris);
+  color: white;
+  border: none;
+  padding: 6px 18px;
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+/* VIAJES COMPLETADOS */
+.completed {
+  background: var(--gris-claro);
+  border-radius: 8px;
+  height: 120px;
+}
